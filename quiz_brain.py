@@ -15,7 +15,8 @@ class QuizBrain:
         self.current_question = self.question_list[self.question_number]
         self.question_number += 1
         q_text = html.unescape(self.current_question.text)
-        user_answer = input(f"Q.{self.question_number}: {q_text} (True/False): ")
+        return f"Q.{self.question_number}: {q_text} (True/False): "
+        #user_answer = input(f"Q.{self.question_number}: {q_text} (True/False): ")
         #no longer needed because answer is now entered via button and question is not input
         #self.check_answer(user_answer)
 
