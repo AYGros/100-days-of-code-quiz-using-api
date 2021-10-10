@@ -22,11 +22,11 @@ class QuizInterface():
         self.score.grid(row=0, column=1)
         #self not needed because we dont use this again
         true = PhotoImage(file="images/true.png")
-        self.true_button = Button(image=true)
+        self.true_button = Button(image=true, command=self.choose_true)
         self.true_button.grid(row=2, column=0)
         #self not needed because we dont use this again
         false = PhotoImage(file="images/false.png")
-        self.false_button = Button(image=false)
+        self.false_button = Button(image=false, command=self.choose_false)
         self.false_button.grid(row=2, column=1)
 
         self.get_next_question()
@@ -36,3 +36,11 @@ class QuizInterface():
     def get_next_question(self):
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=q_text)
+
+    def choose_true(self):
+        self.quiz.check_answer("True")
+        self.get_next_question()
+
+    def choose_false(self):
+        self.quiz.check_answer("False")
+        self.get_next_question()
